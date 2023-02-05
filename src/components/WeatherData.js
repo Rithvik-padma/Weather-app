@@ -3,33 +3,35 @@ import React from 'react'
 const WeatherData = ({weatherData, cityData}) => {
     console.log(weatherData);
   return (
-    <div>
-      <div>
-        <div>
+    <div className='weather-data'>
+      <div className='current-weather'>
+        <div className='weather-pic'>
             <img src={"http://openweathermap.org/img/wn/"+weatherData.weather[0].icon+"@2x.png"} alt="" />
         </div>
-        <div>
+        <div className='current-element'>
             <h1>{cityData.label}</h1>
-            <p>{weatherData.weather[0].description}</p>
+            <p className='current-data'>{weatherData.weather[0].description}</p>
+            <span className='current-data'>Temperature: </span>
+            <span className='current-data'>{Math.round(weatherData.main.temp)-273}°C</span>
         </div>
-        <div>
-            <h1></h1>
+        <div className='current-element'>
+            <h2>Description</h2>
         </div>
-        <div>
-            <span>Feels Like :</span>
-            <span>{Math.round(weatherData.main.feels_like - 273)}</span>
+        <div className='current-element current-data'>
+            <span>Feels-Like: </span>
+            <span>{Math.round(weatherData.main.feels_like - 273)}°C</span>
         </div>
-        <div>
-            <span>Wind :</span>
-            <span></span>
+        <div className='current-element current-data'>
+            <span>Wind: </span>
+            <span>{weatherData.wind.speed}</span>
         </div>
-        <div>
-            <span>Humidity :</span>
-            <span></span>
+        <div className='current-element current-data'>
+            <span>Humidity: </span>
+            <span>{weatherData.main.humidity}</span>
         </div>
-        <div>
-            <span>Presuure :</span>
-            <span></span>
+        <div className='current-element current-data'>
+            <span>Pressure: </span>
+            <span>{weatherData.main.pressure}</span>
         </div>
       </div>
       <div>
